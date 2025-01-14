@@ -24,7 +24,6 @@ const Login = () => {
       setError('');
       setLoading(true);
       let userCredential = await login(email, password);
-      console.log(userCredential); // delete later
 
       if (userCredential.user.emailVerified) {
         navigate('/');
@@ -33,8 +32,6 @@ const Login = () => {
         verifyEmail(userCredential.user);
         logoutUser();
       }
-      // await login(email, password);
-      // navigate("/");
     } catch (err) {
       setError('Failed to log in');
       console.error(err);

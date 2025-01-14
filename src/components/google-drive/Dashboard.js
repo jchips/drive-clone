@@ -11,10 +11,8 @@ import AddFileButton from './AddFileButton';
 
 const Dashboard = () => {
   const { folderId } = useParams();
-  const { pathState = {} } = useLocation();
-  // console.log('path state', pathState); // delete later
-  const { folder, childFolders, childFiles } = useFolder(folderId, pathState.folder); // state.folder is the data being passed along
-  // console.log('🚀 ~ Dashboard ~ folder:', folder);
+  const { state = {} } = useLocation();
+  const { folder, childFolders, childFiles } = useFolder(folderId, state?.folder);
 
   return (
     <div>
