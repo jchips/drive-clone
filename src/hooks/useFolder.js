@@ -82,7 +82,7 @@ export function useFolder(folderId = null, folder = null) {
 
   // Access current folder
   useEffect(() => {
-    if (folderId === null) { // then we are in the root folder
+    if (folderId === null) { // in the root folder
       return dispatch({
         type: ACTIONS.UPDATE_FOLDER,
         payload: { folder: ROOT_FOLDER }
@@ -93,10 +93,6 @@ export function useFolder(folderId = null, folder = null) {
     const getFolderId = doc(db, 'folders', folderId);
     getDoc(getFolderId)
       .then(doc => {
-        // let formattedDoc = {
-        //   id: doc.id,
-        //   ...doc.data()
-        // }
         dispatch({
           type: ACTIONS.UPDATE_FOLDER,
           payload: { folder: formatDoc(doc) }
@@ -128,7 +124,7 @@ export function useFolder(folderId = null, folder = null) {
     const unsubscribe = onSnapshot(q, (snapshot) => {
       dispatch({
         type: ACTIONS.SET_CHILD_FOLDERS,
-        payload: { childFolders: snapshot.docs.map((doc) => formatDoc(doc)) }, // Assuming formatDoc is a function that extracts data
+        payload: { childFolders: snapshot.docs.map((doc) => formatDoc(doc)) },
       });
     });
     return unsubscribe;
@@ -152,7 +148,7 @@ export function useFolder(folderId = null, folder = null) {
     const unsubscribe = onSnapshot(q, (snapshot) => {
       dispatch({
         type: ACTIONS.SET_CHILD_FILES,
-        payload: { childFiles: snapshot.docs.map((doc) => formatDoc(doc)) }, // Assuming formatDoc is a function that extracts data
+        payload: { childFiles: snapshot.docs.map((doc) => formatDoc(doc)) },
       });
     });
     return unsubscribe;

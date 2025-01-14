@@ -23,7 +23,7 @@ const AddFolderButton = ({ currentFolder }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // If I'm not in a folder at all (so, not in root or any other folder)
+    // If not in a folder at all (not in root or any other folder)
     if (currentFolder === null) return
 
     const path = [...currentFolder.path];

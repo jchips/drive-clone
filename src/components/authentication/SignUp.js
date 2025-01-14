@@ -23,12 +23,10 @@ const SignUp = () => {
     try {
       setError('');
       setLoading(true);
-      // await signup(email, password);
       let userCredential = await signup(email, password); // sign new user up
       verifyEmail(userCredential.user); // send user a verification email
       logoutUser();
       navigate('/verify-email');
-      // navigate("/");
     } catch (err) {
       setError('Failed to create an account. Make sure your password is at least 7 characters.');
       console.error(err);

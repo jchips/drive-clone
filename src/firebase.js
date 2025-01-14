@@ -19,11 +19,4 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
-// const database = {
-//   folders: collection(db, 'folders'),
-//   // files: firestore.collection('files')
-// }
-
-// const foldersCollection = collection()
-
 export { app as default, auth, db, storage, ref, uploadBytesResumable, getDownloadURL };

@@ -4,15 +4,15 @@
 
 A Google Drive clone web app inspired by [Web Dev Simplified](https://www.youtube.com/c/webdevsimplified).
 
-Web Dev Simplified made this same project in 2021 but Firebase documentation has changed since then so I wrote the project so that it works using the up-to-date documentation.
+Web Dev Simplified made this same project in 2021 but Firebase documentation has changed since then so I wrote the project so that it works using up-to-date documentation.
 
 ## Author: Jelani R
 
 ## Architecture
 
-This web app is built in React and uses: Firebase Auth, Cloud Firestore, Firebase Storage, Bootstrap/React Bootstrap.
+This web app is built in React and uses: Firebase Auth, Cloud Firestore, Firebase Storage, Bootstrap.
 
-Languages used: JavaScript/JSX and SCSS.
+Languages used: JavaScript and SCSS.
 
 ## Resources
 

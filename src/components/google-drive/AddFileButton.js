@@ -7,14 +7,11 @@ import { collection, addDoc, serverTimestamp, query, where, getDocs, updateDoc, 
 import { faFileUpload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ROOT_FOLDER } from '../../hooks/useFolder';
-// import { uploadBytes } from 'firebase/storage';
 import { ProgressBar, Toast } from 'react-bootstrap';
 
 const AddFileButton = ({ currentFolder }) => {
   const { currentUser } = useAuth();
   const [uploadingFiles, setUploadingFiles] = useState([]);
-
-  // console.log('database:', database); // delete later
 
   const handleUpload = (e) => {
     const file = e.target.files[0];
@@ -30,12 +27,10 @@ const AddFileButton = ({ currentFolder }) => {
     // If we are in the root folder, ignore our currentFolder's name
     // Puts files in the correct order in Firebase Storage
     const filePath = currentFolder === ROOT_FOLDER ? `${currentFolder.path.map(folder => folder.name).join('/')}/${file.name}` : `${currentFolder.path.map(folder => folder.name).join('/')}/${currentFolder.name}/${file.name}`;
-
     // console.log('🚀 ~ handleUpload ~ filePath:', filePath); // delete later
 
     // This is where we will save the upload task to
     const storageRef = ref(storage, `/files/${currentUser.uid}/${filePath}`);
-    // uploadBytes(storageRef, file); // not sure if i need this
 
     const uploadTask = uploadBytesResumable(storageRef, file);
 
